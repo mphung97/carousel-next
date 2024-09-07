@@ -38,18 +38,20 @@ function Controls({
   };
 
   const onNext = () => {
-    console.log("next")
-    setState((prevState) => prevState.slice(1));
+    // setState((prevState) => prevState.slice(1));
+    setState((prevState) => {
+      return [...prevState.slice(1), transitionState ? transitionState : initData];
+    });
     setCurrentSlide({
       data: transitionState ? transitionState : initData,
       index: sliderData.findIndex((el) => el.image === state[0].image),
     });
     setTransitionState(state[0]);
-    setTimeout(() => {
-      setState((prevState) => {
-        return [...prevState, transitionState ? transitionState : initData];
-      });
-    }, 500);
+    // setTimeout(() => {
+    // setState((prevState) => {
+    //   return [...prevState, transitionState ? transitionState : initData];
+    // });
+    // }, 500);
   };
 
   return (

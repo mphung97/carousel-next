@@ -1,7 +1,7 @@
 import { SlideType } from "./types";
 import { motion } from "framer-motion";
 
-const item = {
+const variants = {
   hidden: {
     y: "100%",
     transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
@@ -21,7 +21,7 @@ function AnimatedText({
 }) {
   return (
     <span className="inline-block overflow-hidden">
-      <motion.p className={className} variants={item} key={data}>
+      <motion.p className={className} variants={variants} key={data}>
         {data}
       </motion.p>
     </span>
@@ -37,8 +37,8 @@ function Info({
 }) {
   return (
     <>
-      <motion.span className="mb-2 h-1 w-5 rounded-full bg-white" />
-      <motion.div initial="hidden" animate="visible" className="flex flex-col">
+      <motion.span key="info-span" layout className="mb-2 h-1 w-5 rounded-full bg-white" />
+      <motion.div key="info-div" initial="hidden" animate="visible" className="flex flex-col">
         <AnimatedText
           data={transitionState.location ?? currentSlide.data.location}
           className="spacing overflow-hidden text-[#d5d5d6]"

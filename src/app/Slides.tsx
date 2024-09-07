@@ -8,7 +8,7 @@ function Slides({ data }: { data: SlideType[] }) {
         {data.map((slide, index) => {
           return (
             <motion.div
-              key={slide.image}
+              key={slide.id}
               className="relative h-52 min-w-[250px] rounded-2xl shadow-md md:h-80 md:min-w-[250px]"
               layout
               initial={{ scale: 0.8, opacity: 0 }}
@@ -19,7 +19,7 @@ function Slides({ data }: { data: SlideType[] }) {
               <motion.img
                 layout
                 src={slide.image}
-                alt={`slide-${index} image`}
+                alt={`slide-${slide.id}`}
                 className="absolute h-full w-full object-cover rounded-2xl brightness-75"
               />
               <motion.div className="absolute z-10 flex h-full items-end p-4">
